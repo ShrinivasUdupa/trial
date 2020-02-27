@@ -22,14 +22,7 @@ class Database:
         print("Maximum - sold product with product details")
         print(max_sold)
 
-        # To find a Minimum - sold product with product details fetched
-
-        cursor.execute("select product_name, product_code, price from (select product_name, product_code, price, dense_rank() over(order by product_quantity) as r from product p join sale s on p.id = s.id) as t where r = 1")
-        logging.info("Minimum - sold product with product details fetched")
-        min_sold = cursor.fetchall()
-        print("Minimum - sold product with product details")
-        print(min_sold)
-
+        
         # To Get the billing date from user and print the product details and total amount of displaying products
 
         date_inp = input("Enter a date : ")
